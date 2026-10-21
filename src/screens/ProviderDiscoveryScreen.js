@@ -2,6 +2,7 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import AppButton from '../components/AppButton';
 import ProviderCard from '../components/ProviderCard';
 import ScreenContainer from '../components/ScreenContainer';
+import ScreenHeader from '../components/ScreenHeader';
 import { colors, radius, spacing, typography } from '../theme/theme';
 
 // S01 Provider Discovery. Data and actions come in as props, so this screen
@@ -12,6 +13,7 @@ export default function ProviderDiscoveryScreen({
   onJoinPress,
   onProviderPress,
   onStartGroup,
+  onBack,
 }) {
   const availableCount = providers.filter((provider) => provider.isAvailable).length;
 
@@ -38,6 +40,7 @@ export default function ProviderDiscoveryScreen({
 
   return (
     <ScreenContainer>
+      {onBack && <ScreenHeader title="Food providers" onBack={onBack} />}
       <FlatList
         data={providers}
         keyExtractor={(provider) => provider.providerId}

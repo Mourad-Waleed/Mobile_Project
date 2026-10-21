@@ -1,10 +1,15 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { colors, radius, spacing, typography } from '../theme/theme';
 
-// variant: 'primary' (filled) or 'secondary' (outlined). A disabled button
-// ignores presses and looks greyed out.
+// variant: 'primary' (filled), 'secondary' (outlined) or 'text' (link-style).
+// A disabled button ignores presses and looks greyed out.
 export default function AppButton({ title, onPress, disabled = false, variant = 'primary' }) {
   const isPrimary = variant === 'primary';
+  const variantStyle = {
+    primary: styles.primary,
+    secondary: styles.secondary,
+    text: styles.textButton,
+  }[variant];
 
   return (
     <Pressable
@@ -14,7 +19,7 @@ export default function AppButton({ title, onPress, disabled = false, variant = 
       accessibilityState={{ disabled }}
       style={({ pressed }) => [
         styles.base,
-        isPrimary ? styles.primary : styles.secondary,
+        variantStyle,
         disabled && styles.disabled,
         pressed && !disabled && styles.pressed,
       ]}
@@ -47,6 +52,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     borderWidth: 1.5,
     borderColor: colors.primary,
+  },
+  textButton: {
+    backgroundColor: 'transparent',
+    paddingHorizontal: spacing.sm,
   },
   disabled: {
     backgroundColor: colors.disabled,
