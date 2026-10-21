@@ -1,20 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Alert } from 'react-native';
+import { currentUser, providers } from './src/data/mockData';
+import ProviderDiscoveryScreen from './src/screens/ProviderDiscoveryScreen';
+
+// Temporary handlers: the other screens do not exist yet, so each action
+// just shows what it will do. Replace with real navigation later.
+const comingSoon = (message) => () => Alert.alert('Coming soon', message);
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <>
+      <ProviderDiscoveryScreen
+        currentUser={currentUser}
+        providers={providers}
+        onJoinPress={comingSoon('Join with code opens the Join screen (S04).')}
+        onProviderPress={(provider) => comingSoon(`${provider.name} opens its menu (S02).`)()}
+        onStartGroup={(provider) =>
+          comingSoon(`Starting a group with ${provider.name} opens Create Group (S03).`)()
+        }
+      />
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
