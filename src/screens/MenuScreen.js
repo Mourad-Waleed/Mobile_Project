@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { SectionList, StyleSheet, Text, View } from 'react-native';
 import EmptyState from '../components/EmptyState';
 import FoodDetailsModal from '../components/FoodDetailsModal';
+import FormMessage from '../components/FormMessage';
 import MenuItemRow from '../components/MenuItemRow';
 import ScreenContainer from '../components/ScreenContainer';
 import ScreenHeader from '../components/ScreenHeader';
@@ -10,16 +11,23 @@ import { colors, spacing, typography } from '../theme/theme';
 
 // Menu for the restaurant whose id is passed in (so Back returns to the same
 // restaurant). Tapping an available item opens its details; unavailable items
-// cannot be opened.
+// cannot be opened. If the restaurant itself is unavailable, the menu is
+// read-only and a banner says so (nothing here can be ordered).
 export default function MenuScreen({ providerId, onBack }) {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const provider = getProviderById(providerId);
   const sections = getMenuSections(providerId);
+  const restaurantAvailable = provider ? provider.isAvailable : true;
 
   return (
     <ScreenContainer>
       <ScreenHeader title={provider ? `${provider.name} menu` : 'Menu'} onBack={onBack} />
+      {!restaurantAvailable && (
+        <View style={styles.banner}>
+          <FormMessage message="This restaurant is unavailable right now. This menu is read-only, and items can't be ordered." />
+        </View>
+      )}
       <SectionList
         sections={sections}
         keyExtractor={(item) => item.menuItemId}
@@ -38,12 +46,19 @@ export default function MenuScreen({ providerId, onBack }) {
           <EmptyState title="No menu yet" message="This restaurant has not added any items." />
         }
       />
-      <FoodDetailsModal item={selectedItem} onClose={() => setSelectedItem(null)} />
+      <FoodDetailsModal
+        item={selectedItem}
+        restaurantAvailable={restaurantAvailable}
+        onClose={() => setSelectedItem(null)}
+      />
     </ScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
+  banner: {
+    paddingHorizontal: spacing.md,
+  },
   list: {
     paddingHorizontal: spacing.md,
     paddingBottom: spacing.xl,

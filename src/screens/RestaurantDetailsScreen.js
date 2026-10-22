@@ -1,6 +1,7 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import AppButton from '../components/AppButton';
 import EmptyState from '../components/EmptyState';
+import FormMessage from '../components/FormMessage';
 import ProviderThumb from '../components/ProviderThumb';
 import ScreenContainer from '../components/ScreenContainer';
 import ScreenHeader from '../components/ScreenHeader';
@@ -18,7 +19,8 @@ function InfoRow({ label, value }) {
 }
 
 // Restaurant details for the restaurant whose id is passed in.
-// An unavailable restaurant shows a notice and its menu button is disabled.
+// An unavailable restaurant shows a clear notice. Its menu can still be opened,
+// but only to read it (no group orders or ordering).
 export default function RestaurantDetailsScreen({ providerId, onBack, onViewMenu }) {
   const provider = getProviderById(providerId);
 
@@ -50,12 +52,7 @@ export default function RestaurantDetailsScreen({ providerId, onBack, onViewMenu
         </View>
 
         {!provider.isAvailable && (
-          <View style={styles.notice} accessibilityRole="alert">
-            <Text style={styles.noticeText}>
-              This restaurant is unavailable right now, so its menu can't be opened. Please check
-              back later or choose another restaurant.
-            </Text>
-          </View>
+          <FormMessage message="This restaurant is unavailable right now. You can read its menu, but you can't start a group order or order from it until it is available again." />
         )}
 
         <Text style={styles.description}>{provider.description}</Text>
@@ -66,14 +63,18 @@ export default function RestaurantDetailsScreen({ providerId, onBack, onViewMenu
           <InfoRow label="Delivery time" value={provider.deliveryTime} />
           <InfoRow
             label="Menu"
-            value={`${availableItems} of ${items.length} items available`}
+            value={
+              provider.isAvailable
+                ? `${availableItems} of ${items.length} items available`
+                : 'Unavailable right now (read-only)'
+            }
           />
         </View>
 
         <AppButton
-          title={provider.isAvailable ? 'View menu' : 'Menu unavailable'}
+          title={provider.isAvailable ? 'View menu' : 'View menu (read-only)'}
+          variant={provider.isAvailable ? 'primary' : 'secondary'}
           onPress={() => onViewMenu(provider.providerId)}
-          disabled={!provider.isAvailable}
         />
       </ScrollView>
     </ScreenContainer>
@@ -102,17 +103,6 @@ const styles = StyleSheet.create({
   },
   badge: {
     marginTop: spacing.sm,
-  },
-  notice: {
-    marginTop: spacing.sm,
-    padding: spacing.md,
-    borderRadius: radius.sm,
-    backgroundColor: colors.dangerTint,
-  },
-  noticeText: {
-    ...typography.label,
-    fontWeight: '500',
-    color: colors.danger,
   },
   description: {
     ...typography.body,

@@ -6,7 +6,9 @@ import StatusBadge from './StatusBadge';
 
 // Bottom sheet with a food item's details. It is shown whenever `item` is set,
 // and closes through onClose (Close button, tapping outside, or Android back).
-export default function FoodDetailsModal({ item, onClose }) {
+// If the restaurant is unavailable, the item's own "Available" badge would be
+// misleading, so a note says it can't be ordered instead.
+export default function FoodDetailsModal({ item, restaurantAvailable = true, onClose }) {
   return (
     <Modal visible={Boolean(item)} transparent animationType="slide" onRequestClose={onClose}>
       <Pressable
@@ -24,7 +26,13 @@ export default function FoodDetailsModal({ item, onClose }) {
               </Text>
               <Text style={styles.price}>{formatPrice(item.price)}</Text>
               <View style={styles.badgeRow}>
-                <StatusBadge isAvailable={item.isAvailable} />
+                {restaurantAvailable ? (
+                  <StatusBadge isAvailable={item.isAvailable} />
+                ) : (
+                  <Text style={styles.restaurantNote}>
+                    Restaurant unavailable: this item can't be ordered right now.
+                  </Text>
+                )}
               </View>
               <Text style={styles.description}>{item.description}</Text>
               <AppButton title="Close" variant="secondary" onPress={onClose} />
@@ -64,6 +72,10 @@ const styles = StyleSheet.create({
   },
   badgeRow: {
     marginTop: spacing.sm,
+  },
+  restaurantNote: {
+    ...typography.label,
+    color: colors.danger,
   },
   description: {
     ...typography.body,

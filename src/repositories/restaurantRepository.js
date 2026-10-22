@@ -41,6 +41,14 @@ export function getMenuItems(providerId) {
   return menuItems.filter((item) => item.providerId === providerId);
 }
 
+// Can this item be added to an order? Only when the restaurant AND the item are
+// both available. An item's own `isAvailable` flag is not enough: an unavailable
+// restaurant's menu can be browsed, but nothing on it can be ordered.
+export function isMenuItemOrderable(item) {
+  const provider = getProviderById(item.providerId);
+  return Boolean(provider && provider.isAvailable && item.isAvailable);
+}
+
 // Menu items grouped by category, in the shape SectionList expects:
 // [{ title, data: [item, ...] }].
 export function getMenuSections(providerId) {
