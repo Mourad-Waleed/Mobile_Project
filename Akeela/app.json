@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "shared-food-order",
+    "slug": "shared-food-order",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
