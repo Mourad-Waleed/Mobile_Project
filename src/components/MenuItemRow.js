@@ -2,7 +2,6 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, radius, spacing, typography } from '../theme/theme';
 import { formatPrice } from '../utils/format';
 
-// One menu item. Unavailable items cannot be pressed and are clearly dimmed.
 export default function MenuItemRow({ item, onPress }) {
   const { name, description, price, isAvailable } = item;
 

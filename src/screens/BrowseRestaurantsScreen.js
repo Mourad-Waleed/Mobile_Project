@@ -9,9 +9,6 @@ import SearchBar from '../components/SearchBar';
 import { getCuisines, searchProviders } from '../repositories/restaurantRepository';
 import { colors, spacing, typography } from '../theme/theme';
 
-// Browse: search by name or cuisine and filter by cuisine.
-// initialCuisine pre-selects a filter (from a Home shortcut); autoFocusSearch
-// opens the keyboard (from the Home search bar).
 export default function BrowseRestaurantsScreen({
   initialCuisine = null,
   autoFocusSearch = false,

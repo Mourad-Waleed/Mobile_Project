@@ -1,5 +1,3 @@
-// Shared design tokens so every screen uses the same look.
-
 export const colors = {
   background: '#F7F5F2',
   surface: '#FFFFFF',

@@ -1,10 +1,3 @@
-// Mock data for the initial UI. Shapes follow the planned data model
-// (User, FoodProvider, MenuItem). Screens read it through
-// src/repositories/restaurantRepository.js, so it can be swapped later.
-//
-// Prices are integers in piasters (4500 = EGP 45.00) to avoid rounding errors.
-// `emoji` stands in for a provider image until real images exist.
-
 export const currentUser = {
   userId: 'u1',
   displayName: 'Nour',
@@ -102,7 +95,6 @@ export const providers = [
 ];
 
 export const menuItems = [
-  // Cairo Koshary House
   { menuItemId: 'm101', providerId: 'p1', category: 'Mains', name: 'Classic Koshary', description: 'Rice, macaroni and lentils topped with crispy onions, chickpeas and tomato sauce.', price: 4500, isAvailable: true },
   { menuItemId: 'm102', providerId: 'p1', category: 'Mains', name: 'Koshary Large', description: 'The classic koshary in a larger portion, made for sharing.', price: 6500, isAvailable: true },
   { menuItemId: 'm103', providerId: 'p1', category: 'Mains', name: 'Hawawshi', description: 'Baladi bread stuffed with spiced minced beef and baked until crisp.', price: 7000, isAvailable: true },
@@ -110,7 +102,6 @@ export const menuItems = [
   { menuItemId: 'm105', providerId: 'p1', category: 'Desserts', name: 'Rice Pudding', description: 'Creamy rice pudding topped with cinnamon.', price: 2500, isAvailable: true },
   { menuItemId: 'm106', providerId: 'p1', category: 'Drinks', name: 'Lemon Mint', description: 'Fresh lemon juice blended with mint.', price: 3000, isAvailable: true },
 
-  // Nile Grill
   { menuItemId: 'm201', providerId: 'p2', category: 'Mains', name: 'Mixed Grill Plate', description: 'Kofta, shish tawook and lamb cubes with rice and grilled tomato.', price: 15500, isAvailable: true },
   { menuItemId: 'm202', providerId: 'p2', category: 'Mains', name: 'Chicken Shish Tawook', description: 'Marinated chicken skewers with garlic sauce and pita.', price: 9500, isAvailable: true },
   { menuItemId: 'm203', providerId: 'p2', category: 'Mains', name: 'Kofta Skewers', description: 'Seasoned minced beef skewers grilled over charcoal.', price: 9000, isAvailable: true },
@@ -119,7 +110,6 @@ export const menuItems = [
   { menuItemId: 'm206', providerId: 'p2', category: 'Sides', name: 'Hummus and Pita', description: 'Smooth hummus with warm pita bread.', price: 3500, isAvailable: true },
   { menuItemId: 'm207', providerId: 'p2', category: 'Drinks', name: 'Mint Tea', description: 'Fresh mint tea served hot.', price: 2000, isAvailable: true },
 
-  // Falafel Express
   { menuItemId: 'm301', providerId: 'p3', category: 'Sandwiches', name: 'Falafel Sandwich', description: 'Crispy falafel, tahini, pickles and salad in baladi bread.', price: 2500, isAvailable: true },
   { menuItemId: 'm302', providerId: 'p3', category: 'Sandwiches', name: 'Ful Medames Sandwich', description: 'Warm fava beans with olive oil and lemon.', price: 2200, isAvailable: true },
   { menuItemId: 'm303', providerId: 'p3', category: 'Sandwiches', name: 'Eggplant Sandwich', description: 'Fried eggplant with tahini and tomato sauce.', price: 2800, isAvailable: true },
@@ -127,14 +117,12 @@ export const menuItems = [
   { menuItemId: 'm305', providerId: 'p3', category: 'Sides', name: 'French Fries', description: 'Golden fries with a pinch of salt.', price: 2000, isAvailable: true },
   { menuItemId: 'm306', providerId: 'p3', category: 'Drinks', name: 'Fresh Mango Juice', description: 'Thick juice made from seasonal mango.', price: 3500, isAvailable: false },
 
-  // Sushi Garden
   { menuItemId: 'm401', providerId: 'p4', category: 'Nigiri', name: 'Salmon Nigiri (2 pcs)', description: 'Fresh salmon over pressed sushi rice.', price: 9000, isAvailable: true },
   { menuItemId: 'm402', providerId: 'p4', category: 'Rolls', name: 'California Roll', description: 'Crab, avocado and cucumber with sesame seeds.', price: 12000, isAvailable: true },
   { menuItemId: 'm403', providerId: 'p4', category: 'Rolls', name: 'Spicy Tuna Roll', description: 'Tuna with spicy mayo and spring onion.', price: 13000, isAvailable: true },
   { menuItemId: 'm404', providerId: 'p4', category: 'Sides', name: 'Miso Soup', description: 'Traditional miso broth with tofu and seaweed.', price: 3500, isAvailable: true },
   { menuItemId: 'm405', providerId: 'p4', category: 'Drinks', name: 'Green Tea', description: 'Hot Japanese green tea.', price: 2500, isAvailable: true },
 
-  // Burger Yard
   { menuItemId: 'm501', providerId: 'p5', category: 'Burgers', name: 'Classic Beef Burger', description: 'Beef patty, lettuce, tomato, pickles and house sauce.', price: 11000, isAvailable: true },
   { menuItemId: 'm502', providerId: 'p5', category: 'Burgers', name: 'Cheese Burger', description: 'Beef patty with melted cheddar and caramelised onions.', price: 12500, isAvailable: true },
   { menuItemId: 'm503', providerId: 'p5', category: 'Burgers', name: 'Crispy Chicken Burger', description: 'Crispy fried chicken with slaw and spicy mayo.', price: 10500, isAvailable: false },
@@ -143,7 +131,6 @@ export const menuItems = [
   { menuItemId: 'm506', providerId: 'p5', category: 'Sides', name: 'Onion Rings', description: 'Battered onion rings with dipping sauce.', price: 4500, isAvailable: true },
   { menuItemId: 'm507', providerId: 'p5', category: 'Drinks', name: 'Chocolate Shake', description: 'Thick chocolate milkshake topped with cream.', price: 6000, isAvailable: true },
 
-  // Green Bowl
   { menuItemId: 'm601', providerId: 'p6', category: 'Salads', name: 'Chicken Caesar Salad', description: 'Grilled chicken, romaine, parmesan and croutons.', price: 8500, isAvailable: true },
   { menuItemId: 'm602', providerId: 'p6', category: 'Bowls', name: 'Quinoa Power Bowl', description: 'Quinoa with roasted vegetables, chickpeas and tahini dressing.', price: 9500, isAvailable: true },
   { menuItemId: 'm603', providerId: 'p6', category: 'Bowls', name: 'Falafel Bowl', description: 'Falafel over greens with hummus, tomato and cucumber.', price: 8000, isAvailable: true },
@@ -151,7 +138,6 @@ export const menuItems = [
   { menuItemId: 'm605', providerId: 'p6', category: 'Drinks', name: 'Fresh Orange Juice', description: 'Squeezed to order, no added sugar.', price: 3500, isAvailable: true },
   { menuItemId: 'm606', providerId: 'p6', category: 'Desserts', name: 'Fruit Cup', description: 'Seasonal fruit served chilled.', price: 4000, isAvailable: true },
 
-  // Pasta Corner
   { menuItemId: 'm701', providerId: 'p7', category: 'Pasta', name: 'Penne Arrabbiata', description: 'Penne in a spicy tomato and garlic sauce.', price: 9000, isAvailable: true },
   { menuItemId: 'm702', providerId: 'p7', category: 'Pasta', name: 'Fettuccine Alfredo', description: 'Fettuccine in a creamy parmesan sauce.', price: 11000, isAvailable: true },
   { menuItemId: 'm703', providerId: 'p7', category: 'Pizza', name: 'Margherita Pizza', description: 'Tomato, mozzarella and fresh basil.', price: 10000, isAvailable: true },

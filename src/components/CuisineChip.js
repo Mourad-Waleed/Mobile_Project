@@ -1,8 +1,6 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { colors, radius, spacing, typography } from '../theme/theme';
 
-// variant 'pill' is a small filter chip; 'tile' is a larger shortcut with the
-// icon above the label. `selected` highlights the chip (used by filters).
 export default function CuisineChip({ label, icon, selected = false, onPress, variant = 'pill' }) {
   const isTile = variant === 'tile';
 

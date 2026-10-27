@@ -3,7 +3,6 @@ import { colors, radius, spacing, typography } from '../theme/theme';
 import ProviderThumb from './ProviderThumb';
 import StatusBadge from './StatusBadge';
 
-// A compact card for the horizontal "Featured" row on Home.
 export default function FeaturedCard({ provider, onPress }) {
   const { name, cuisine, emoji, deliveryTime, isAvailable } = provider;
 

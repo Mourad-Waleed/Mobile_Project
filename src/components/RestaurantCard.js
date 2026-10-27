@@ -3,8 +3,6 @@ import { colors, radius, spacing, typography } from '../theme/theme';
 import ProviderThumb from './ProviderThumb';
 import StatusBadge from './StatusBadge';
 
-// A restaurant row for the Browse list. Unavailable restaurants stay tappable
-// (the details screen explains the situation) but look clearly dimmed.
 export default function RestaurantCard({ provider, onPress }) {
   const { name, cuisine, emoji, deliveryTime, isAvailable } = provider;
 

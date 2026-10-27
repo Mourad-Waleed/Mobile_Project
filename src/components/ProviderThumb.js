@@ -1,8 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, radius } from '../theme/theme';
 
-// Placeholder "image" for a provider: an emoji on a tinted tile.
-// Greyed out when the provider is unavailable.
 export default function ProviderThumb({ emoji, size = 56, isAvailable = true }) {
   return (
     <View

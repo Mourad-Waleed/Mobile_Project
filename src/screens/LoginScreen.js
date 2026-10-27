@@ -9,15 +9,12 @@ import { mockLogin } from '../services/mockAuth';
 import { colors, spacing, typography } from '../theme/theme';
 import { validateLoginForm } from '../utils/validation';
 
-// Login. onLogin(user) is called after a successful mock login,
-// onGoToSignUp switches to the Sign Up screen.
 export default function LoginScreen({ onLogin, onGoToSignUp }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
   const [formError, setFormError] = useState(null);
 
-  // Editing a field clears that field's old error and the form-level message.
   const updateField = (field, setter) => (text) => {
     setter(text);
     setErrors((previous) => ({ ...previous, [field]: undefined }));

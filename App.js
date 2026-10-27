@@ -15,12 +15,6 @@ import ProviderDiscoveryScreen from './src/screens/ProviderDiscoveryScreen';
 import RestaurantDetailsScreen from './src/screens/RestaurantDetailsScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 
-// Simple navigation without a library (none is chosen yet).
-// `stack` is a list of routes { name, params }; the last one is on screen.
-// navigate() pushes a route, goBack() pops it. Screens receive ids in
-// `params` (never copies of the data) and look the data up themselves.
-// Limits: no swipe-back gesture or animations, no deep links, and the
-// stack resets when the app reloads.
 export default function App() {
   const [stack, setStack] = useState([{ name: 'login', params: {} }]);
   const [user, setUser] = useState(null);
@@ -30,11 +24,9 @@ export default function App() {
   const goBack = () =>
     setStack((previous) => (previous.length > 1 ? previous.slice(0, -1) : previous));
   const resetTo = (name) => setStack([{ name, params: {} }]);
-  // Swaps the screen on top, so Back skips a form that was already submitted.
   const replaceTop = (name, params = {}) =>
     setStack((previous) => [...previous.slice(0, -1), { name, params }]);
 
-  // Android hardware back button: go back a screen when there is one to go back to.
   useEffect(() => {
     const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
       if (stack.length > 1) {
@@ -106,8 +98,6 @@ export default function App() {
         );
       case 'groupDetails': {
         const group = getGroupDetails(params.groupCode);
-        // Finalizing or cancelling changes the stored group in place, so
-        // re-render the stack to show the new status.
         const refresh = () => setStack((previous) => [...previous]);
         return (
           <GroupOrderDetailsScreen
@@ -153,8 +143,6 @@ export default function App() {
     }
   };
 
-  // Every screen in the stack stays mounted; only the top one is visible.
-  // This keeps things like Browse's search text and filter when you come back.
   return (
     <>
       {stack.map((route, index) => (

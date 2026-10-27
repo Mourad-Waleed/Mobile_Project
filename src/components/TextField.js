@@ -2,9 +2,6 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors, radius, spacing, typography } from '../theme/theme';
 
-// Labelled input with an optional error message. With isPassword it hides the
-// text and shows a Show/Hide control. Other props (keyboardType, autoCapitalize,
-// placeholder...) go straight to TextInput.
 export default function TextField({
   label,
   value,

@@ -8,8 +8,6 @@ import { mockRegister } from '../services/mockAuth';
 import { colors, spacing, typography } from '../theme/theme';
 import { validateSignUpForm } from '../utils/validation';
 
-// Sign Up. onSignUp(user) is called after a successful mock registration,
-// onGoToLogin switches back to the Login screen.
 export default function SignUpScreen({ onSignUp, onGoToLogin }) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -18,7 +16,6 @@ export default function SignUpScreen({ onSignUp, onGoToLogin }) {
   const [errors, setErrors] = useState({});
   const [formError, setFormError] = useState(null);
 
-  // Editing a field clears that field's old error and the form-level message.
   const updateField = (field, setter) => (text) => {
     setter(text);
     setErrors((previous) => ({ ...previous, [field]: undefined }));
@@ -30,7 +27,6 @@ export default function SignUpScreen({ onSignUp, onGoToLogin }) {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
 
-    // The password is deliberately not passed on: the mock never stores it.
     const result = mockRegister({ fullName, email });
     if (result.error) {
       setFormError(result.error);

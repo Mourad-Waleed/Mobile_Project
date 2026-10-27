@@ -1,8 +1,6 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors, radius, spacing, typography } from '../theme/theme';
 
-// Two modes. With onPress it is a tappable "entry point" (used on Home).
-// Otherwise it is a real text input with a clear button (used when browsing).
 export default function SearchBar({
   value = '',
   onChangeText,

@@ -74,7 +74,6 @@ export default function CreateGroupOrderScreen({
         contentContainerStyle={styles.content}
         keyboardShouldPersistTaps="handled"
       >
-        {/* Header */}
         <TouchableOpacity
           onPress={onBack}
           style={styles.backButton}
@@ -90,7 +89,6 @@ export default function CreateGroupOrderScreen({
           Start a group and invite your friends to order together.
         </Text>
 
-        {/* Restaurant information */}
         <View style={styles.restaurantCard}>
           <Text style={styles.restaurantLabel}>
             SELECTED RESTAURANT
@@ -101,7 +99,6 @@ export default function CreateGroupOrderScreen({
           </Text>
         </View>
 
-        {/* Group name */}
         <View style={styles.fieldContainer}>
           <Text style={styles.label}>Group Name *</Text>
 
@@ -134,7 +131,6 @@ export default function CreateGroupOrderScreen({
           ) : null}
         </View>
 
-        {/* Deadline */}
         <View style={styles.fieldContainer}>
           <Text style={styles.label}>Order Deadline *</Text>
 
@@ -170,7 +166,6 @@ export default function CreateGroupOrderScreen({
           ) : null}
         </View>
 
-        {/* Delivery notes */}
         <View style={styles.fieldContainer}>
           <Text style={styles.label}>Delivery Notes (Optional)</Text>
 
@@ -186,7 +181,6 @@ export default function CreateGroupOrderScreen({
           />
         </View>
 
-        {/* Create button */}
         <TouchableOpacity
           style={styles.createButton}
           onPress={handleCreateGroup}

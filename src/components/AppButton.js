@@ -1,8 +1,6 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { colors, radius, spacing, typography } from '../theme/theme';
 
-// variant: 'primary' (filled), 'secondary' (outlined) or 'text' (link-style).
-// A disabled button ignores presses and looks greyed out.
 export default function AppButton({ title, onPress, disabled = false, variant = 'primary' }) {
   const isPrimary = variant === 'primary';
   const variantStyle = {

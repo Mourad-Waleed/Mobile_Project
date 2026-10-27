@@ -7,8 +7,6 @@ import SearchBar from '../components/SearchBar';
 import { getCuisines, getFeaturedProviders } from '../repositories/restaurantRepository';
 import { colors, spacing, typography } from '../theme/theme';
 
-// Home: greeting, search entry point, cuisine shortcuts and featured restaurants.
-// It only reports what the user tapped; App.js decides where to go.
 export default function HomeScreen({
   user,
   onSearchPress,

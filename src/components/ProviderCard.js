@@ -12,8 +12,6 @@ function getInitials(name) {
     .toUpperCase();
 }
 
-// onPress opens the provider (menu); onStartGroup starts a group order.
-// The info area and the button are separate, so a screen reader can reach both.
 export default function ProviderCard({ provider, onPress, onStartGroup }) {
   const { name, cuisine, isAvailable } = provider;
 

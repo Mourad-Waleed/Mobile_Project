@@ -1,7 +1,3 @@
-// Pure validation helpers. Each field function returns an error message,
-// or null when the value is fine. The form functions return an object that
-// only contains the fields that have an error.
-
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MIN_PASSWORD_LENGTH = 6;
 

@@ -5,8 +5,6 @@ import ScreenContainer from '../components/ScreenContainer';
 import ScreenHeader from '../components/ScreenHeader';
 import { colors, radius, spacing, typography } from '../theme/theme';
 
-// S01 Provider Discovery. Data and actions come in as props, so this screen
-// only displays them. Navigation is wired up later when the other screens exist.
 export default function ProviderDiscoveryScreen({
   currentUser,
   providers,

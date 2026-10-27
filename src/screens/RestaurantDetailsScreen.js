@@ -18,9 +18,6 @@ function InfoRow({ label, value }) {
   );
 }
 
-// Restaurant details for the restaurant whose id is passed in.
-// An unavailable restaurant shows a clear notice. Its menu can still be opened,
-// but only to read it (no group orders or ordering).
 export default function RestaurantDetailsScreen({ providerId, onBack, onViewMenu }) {
   const provider = getProviderById(providerId);
 

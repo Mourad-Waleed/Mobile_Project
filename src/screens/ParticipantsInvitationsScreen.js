@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   View,
@@ -116,7 +115,6 @@ const ParticipantsInvitationsScreen = ({
         See who's joining your order and invite others to participate.
       </Text>
 
-      {/* Group information */}
       <View style={styles.card}>
         <Text style={styles.sectionTitle}>Group Information</Text>
 
@@ -140,7 +138,6 @@ const ParticipantsInvitationsScreen = ({
         </View>
       </View>
 
-      {/* Invitation code */}
       <View style={styles.card}>
         <Text style={styles.sectionTitle}>Invite Friends</Text>
 
@@ -161,7 +158,6 @@ const ParticipantsInvitationsScreen = ({
         </TouchableOpacity>
       </View>
 
-      {/* Participants */}
       <View style={styles.card}>
         <View style={styles.participantsHeader}>
           <Text style={styles.sectionTitle}>Participants</Text>

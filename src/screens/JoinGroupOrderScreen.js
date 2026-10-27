@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 import { GROUP_STATUS, getGroupDetails, joinGroup } from '../repositories/groupRepository';
@@ -14,10 +13,6 @@ import {
   View,
 } from 'react-native';
 
-// Steps: enter a code -> review the group that was found -> confirm.
-// After joining, onJoined(code) lets the app open the group's details.
-// Groups are mock data in memory (see groupRepository), so a code only works
-// for a group created during the current app session.
 export default function JoinGroupOrderScreen({
   user,
   onBack,
@@ -68,7 +63,6 @@ export default function JoinGroupOrderScreen({
         contentContainerStyle={styles.content}
         keyboardShouldPersistTaps="handled"
       >
-        {/* Back button */}
         <TouchableOpacity
           style={styles.backButton}
           onPress={onBack}
@@ -78,7 +72,6 @@ export default function JoinGroupOrderScreen({
           <Text style={styles.backText}>‹ Back</Text>
         </TouchableOpacity>
 
-        {/* Heading */}
         <Text style={styles.title}>Join a Group Order</Text>
 
         <Text style={styles.subtitle}>
@@ -86,7 +79,6 @@ export default function JoinGroupOrderScreen({
           friends and order together.
         </Text>
 
-        {/* Information card */}
         <View style={styles.infoCard}>
           <Text style={styles.infoIcon}>👥</Text>
 
@@ -100,7 +92,6 @@ export default function JoinGroupOrderScreen({
           </Text>
         </View>
 
-        {/* Group code input */}
         <View style={styles.fieldContainer}>
           <Text style={styles.label}>Group Invitation Code *</Text>
 
@@ -129,7 +120,6 @@ export default function JoinGroupOrderScreen({
           ) : null}
         </View>
 
-        {/* Find button */}
         {!foundGroup ? (
           <TouchableOpacity
             style={styles.joinButton}

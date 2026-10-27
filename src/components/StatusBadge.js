@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, radius, spacing, typography } from '../theme/theme';
 
-// Shows availability with a dot AND a text label, so it never relies on colour alone.
 export default function StatusBadge({ isAvailable }) {
   const tint = isAvailable ? colors.successTint : colors.dangerTint;
   const ink = isAvailable ? colors.success : colors.danger;

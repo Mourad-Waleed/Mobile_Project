@@ -2,7 +2,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import { colors, spacing, typography } from '../theme/theme';
 import AppButton from './AppButton';
 
-// Friendly message for an empty list, with an optional action button.
 export default function EmptyState({ title, message, actionLabel, onAction }) {
   return (
     <View style={styles.container}>

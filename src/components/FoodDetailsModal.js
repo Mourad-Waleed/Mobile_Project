@@ -4,10 +4,6 @@ import { formatPrice } from '../utils/format';
 import AppButton from './AppButton';
 import StatusBadge from './StatusBadge';
 
-// Bottom sheet with a food item's details. It is shown whenever `item` is set,
-// and closes through onClose (Close button, tapping outside, or Android back).
-// If the restaurant is unavailable, the item's own "Available" badge would be
-// misleading, so a note says it can't be ordered instead.
 export default function FoodDetailsModal({ item, restaurantAvailable = true, onClose }) {
   return (
     <Modal visible={Boolean(item)} transparent animationType="slide" onRequestClose={onClose}>
@@ -16,7 +12,6 @@ export default function FoodDetailsModal({ item, restaurantAvailable = true, onC
         onPress={onClose}
         accessibilityLabel="Close food details"
       >
-        {/* The inner Pressable stops taps on the sheet from reaching the overlay. */}
         <Pressable style={styles.sheet} onPress={() => {}}>
           {item && (
             <View>

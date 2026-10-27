@@ -1,7 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, spacing, typography } from '../theme/theme';
 
-// Top bar with a Back button and a title, used by screens reached from another screen.
 export default function ScreenHeader({ title, onBack }) {
   return (
     <View style={styles.row}>

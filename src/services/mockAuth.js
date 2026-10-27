@@ -1,17 +1,11 @@
 import { currentUser } from '../data/mockData';
 
-// Mock authentication for the prototype. It is NOT secure and is not meant to be.
-// - Accounts live in memory and disappear when the app reloads.
-// - Passwords are never passed in, stored or checked.
-// A real version would call an authentication service instead.
-
 const accounts = [currentUser];
 
 function normalizeEmail(email) {
   return email.trim().toLowerCase();
 }
 
-// Returns { user } on success or { error } with a friendly message.
 export function mockLogin(email) {
   const user = accounts.find((account) => account.email === normalizeEmail(email));
   if (!user) {

@@ -9,10 +9,6 @@ import ScreenHeader from '../components/ScreenHeader';
 import { getMenuSections, getProviderById } from '../repositories/restaurantRepository';
 import { colors, spacing, typography } from '../theme/theme';
 
-// Menu for the restaurant whose id is passed in (so Back returns to the same
-// restaurant). Tapping an available item opens its details; unavailable items
-// cannot be opened. If the restaurant itself is unavailable, the menu is
-// read-only and a banner says so (nothing here can be ordered).
 export default function MenuScreen({ providerId, onBack }) {
   const [selectedItem, setSelectedItem] = useState(null);
 

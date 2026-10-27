@@ -2,8 +2,6 @@ import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, View } fr
 import { colors, radius, spacing, typography } from '../theme/theme';
 import ScreenContainer from './ScreenContainer';
 
-// Shared frame for the Login and Sign Up screens: brand header, a card for the
-// form, and scrolling so the keyboard never hides the fields.
 export default function AuthLayout({ title, subtitle, children }) {
   return (
     <ScreenContainer>
